@@ -15,7 +15,7 @@ if (!fs.existsSync(uploadsDir)) {
 
 router.post("/", async (req, res) => {
   try {
-    const {
+    const { 
       appointment_id,
       payment_method,
       coupon_id,

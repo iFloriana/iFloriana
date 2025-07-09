@@ -14,7 +14,9 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "http://192.168.1.5:5173",
-    "http://192.168.1.5:5173"
+    "http://192.168.1.5:5173",
+    "https://admin.ifloriana.com",    // Admin frontend
+    "https://superadmin.ifloriana.com", // Superadmin frontend
   ],
   credentials: true,
 }));
