@@ -3,6 +3,7 @@ const app = require("./app"); // ✅ Use the configured app
 // Remove redundant express.json and express.urlencoded usage here. They are already set up in app.js
 const multer = require("multer");
 const path = require("path");
+require("dotenv").config(); // Load .env file
 
 // Remove redundant express.json and express.urlencoded usage here. They are already set up in app.js
 
@@ -53,9 +54,12 @@ const orderRoutes = require('./routes/order').router;
 
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/salon_admin")
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log("✅ MongoDB Atlas Connected"))
+.catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 // Configure multer for global use
 const storage = multer.diskStorage({
