@@ -21,10 +21,6 @@ app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 // Static folder for image access
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-
-// ✅ Allow preflight requests (OPTIONS)
-// Remove the problematic app.options("*", cors())
-
 // ✅ Parsing middleware
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
